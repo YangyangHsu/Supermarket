@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 13, 2017 11:22:15 AM by Hibernate Tools 5.2.0.Beta1 -->
+<hibernate-mapping>
+    <class name="domain.Payment" table="Payment" catalog="Supermarket" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="paymentStatus" type="int">
+            <column name="paymentStatus" not-null="true" />
+        </property>
+        <property name="customerId" type="java.lang.Integer">
+            <column name="customerId" />
+        </property>
+        <property name="cashierId" type="java.lang.Integer">
+            <column name="cashierId" />
+        </property>
+        <property name="itemId" type="java.lang.Integer">
+            <column name="itemId" />
+        </property>
+    </class>
+</hibernate-mapping>

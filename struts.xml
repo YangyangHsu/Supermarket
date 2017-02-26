@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.custom.i18n.resources" value="resource"/>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<constant name="struts.devMode" value="true"/>
+	<package name="default" extends="struts-default" namespace="/Supermarket">
+		<global-results>
+			<result name="business">/WEB-INF/content/error.jsp</result>
+			<result name="root">/WEB-INF/content/error.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="login">/WEB-INF/content/login.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping 
+				exception="exception.SupermarketException"
+				result="business"/>
+			<exception-mapping exception="java.lang.Exception" 
+				result="root"/>
+		</global-exception-mappings>		
+		<action name="AddPayment" >
+			<result>/WEB-INF/content/ShowPayment.jsp</result>
+		</action>
+		<action name="Logout" >
+			<result>/WEB-INF/content/login.jsp</result>
+		</action>
+		<action name="loginCashier" class="actionCashier.loginCashier">
+			<result name="SUCCESS">/WEB-INF/content/AddPayment.jsp</result>
+			<result name="LOGIN">/WEB-INF/content/error.jsp</result>
+		</action>
+		<action name="save" class="actionCustomer.saveCustomer">
+		    <result name="SUCCESS">/WEB-INF/content/query.jsp</result>
+		</action>
+		<action name="query" class="actionCustomer.queryCustomer">
+		    <result name="SUCCESS">/WEB-INF/content/queryAnswer.jsp</result>
+		</action>
+		<!-- <action name="hrlogin" class="oops.recruitment.action.hr.LoginHr">
+			<result>/WEB-INF/content/hr/index.jsp</result>
+		</action>
+		<action name="processAddPos" class="oops.recruitment.action.hr.AddPosHr">
+			<result name="success">/WEB-INF/content/hr/AddPosHr.jsp</result>			
+		</action>
+		<action name="processAddApp" class="oops.recruitment.action.user.AddAppUser">
+			<result>/WEB-INF/content/user/PosAllUser.jsp</result>
+		</action>
+		<action name="processRepApp" class="oops.recruitment.action.hr.ReplyAppHr">
+			<result>/WEB-INF/content/hr/ReplyHrByType.jsp</result>
+		</action>		
+		<action name="ReplyUserByType" class="oops.recruitment.action.user.ReplyUserByType">
+			<result>/WEB-INF/content/user/ReplyUserByType.jsp</result>
+		</action>
+		<action name="ReplyHrByType" class="oops.recruitment.action.hr.ReplyHrByType">
+			<result>/WEB-INF/content/hr/ReplyHrByType.jsp</result>
+		</action>
+		<action name="*User" class="oops.recruitment.action.user.{1}User">
+			<result>/WEB-INF/content/user/{1}User.jsp</result>
+		</action>
+		<action name="*Hr" class="oops.recruitment.action.hr.{1}Hr">
+			<result>/WEB-INF/content/hr/{1}Hr.jsp</result>
+		</action>
+		<action name="*">
+			<result>/WEB-INF/content/{1}.jsp</result>
+		</action> -->
+	</package>
+</struts>
